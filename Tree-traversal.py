@@ -27,14 +27,6 @@ def postorderTraversal(root):
         postorderTraversal(root.leftchild)
         postorderTraversal(root.rightchild)
         print(root.data)
-    
-def sizetree(root):
-    if root == None:
-        return 0
-    else:
-        ls=sizetree(root.leftchild)
-        rs=sizetree(root.rightchild)
-        return ls+rs+1
 
 root=Node(10)
 root.leftchild=Node(20)
@@ -47,5 +39,3 @@ print("inorder")
 inorderTraversal(root)
 print("postorder")
 postorderTraversal(root)
-print("size of tree")
-print(sizetree(root))
