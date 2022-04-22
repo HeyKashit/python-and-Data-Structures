@@ -10,3 +10,4 @@ Dsa code in python for my own reference.
 2. Queue
 3. Tree
 4. BST(Binary search tree)
+5. Graph
