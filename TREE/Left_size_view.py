@@ -1,3 +1,4 @@
+    from collection import defaultdict
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         x=defaultdict(list)
         def r_side(node,h):
