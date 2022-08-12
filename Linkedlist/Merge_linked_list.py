@@ -1,22 +1,24 @@
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummyNode = ListNode()
-        current = dummyNode
-        pointer1 = list1
-        pointer2 = list2
-        
-        while pointer1 and pointer2:
-            if pointer1.val < pointer2.val:
-                current.next = pointer1
-                pointer1 = pointer1.next
-            else:
-                current.next = pointer2
-                pointer2 = pointer2.next
-            current = current.next
-        
-        if pointer1:
-            current.next = pointer1
-        if pointer2:
-            current.next = pointer2
-        
-        return dummyNode.next
+def merge_lists(head1, head2):
+    if head1 is None and head2 is None:
+        return None
+    if head1 is None:
+        return head2
+    if head2 is None:
+        return head1
+    if head1.value < head2.value:
+        temp = head1
+    else:
+        temp = head2
+    while head1 != None and head2 != None:
+        if head1.value < head2.value:
+            temp.next = head1
+            head1 = head1.next
+        else:
+            temp.next = head2
+            head2 = head2.next
+    if head1 is None:
+        temp.next = head2
+    else:
+        temp.next = head1
+    return temp
+    pass
