@@ -1,24 +1,13 @@
-def merge_lists(head1, head2):
-    if head1 is None and head2 is None:
-        return None
-    if head1 is None:
-        return head2
-    if head2 is None:
-        return head1
-    if head1.value < head2.value:
-        temp = head1
-    else:
-        temp = head2
-    while head1 != None and head2 != None:
-        if head1.value < head2.value:
-            temp.next = head1
-            head1 = head1.next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1 is None:
+            return l2
+        if l2 is None:
+            return l1
+    
+        if l1.val <= l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
         else:
-            temp.next = head2
-            head2 = head2.next
-    if head1 is None:
-        temp.next = head2
-    else:
-        temp.next = head1
-    return temp
-    pass
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
